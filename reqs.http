@@ -1,0 +1,98 @@
+############################### USER ROUTES ###############################
+
+POST http://localhost:2121/login
+Content-Type: application/json
+
+{
+    "email": "riya@scribbler.com",
+    "password": "Riya"
+}
+
+###
+
+
+POST http://localhost:2121/register
+Content-Type: application/json
+
+{
+    "email": "joe@scribbler.com",
+    "username": "joe",
+    "name": "Joe Sharma",
+    "gender": "M",
+    "password": "joe"
+}
+
+###
+
+
+POST http://localhost:2121/4/post
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJpeWFAc2NyaWJibGVyLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjgzNzk5MTQxLCJleHAiOjE2ODM4ODU1NDF9.bW9clw6czND9floIRfNdDvUuxC4R7ufyIITfzcPKXYo
+Content-Type: application/json
+
+{
+
+    "heading": "Test blog",
+    "category": "Music",
+    "blog": "Hello welcome to my blog!"
+}
+
+###
+
+
+POST http://localhost:2121/forgot-password
+Content-Type: application/json
+
+{
+    "email": "akash@scribbler.com"
+}
+
+###
+
+# GET ALL THE BLOGS BY A USER & users
+GET http://localhost:2121/blogs/user/4
+
+###
+
+POST http://localhost:2121/reset-password/akash@scribbler.com/token
+Content-Type: application/json
+
+{
+    "password": "akash1"
+}
+
+###
+
+GET http://localhost:2121/blogs
+
+###
+
+# USER PROFILE
+# GET http://localhost:2121/id/1
+
+###
+
+# GET BLOGS BY CATEGORY
+
+GET 
+
+
+############################### ADMIN ROUTES ###############################
+
+###
+
+GET http://localhost:2121/admin/users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFrYXNoQHNjcmliYmxlci5jb20iLCJyb2xlIjoidXNlciIsImlhdCI6MTY4MzY5NTg0OCwiZXhwIjoxNjgzNzgyMjQ4fQ.d6yYLJv56UssAh2XJnZcb2XjBeNw2Vv74ol2xeCj_40
+
+###
+
+DELETE http://localhost:2121/admin/delete/user/2
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhdmlAc2NyaWJibGVyLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY4MzY5NzMyMCwiZXhwIjoxNjgzNzgzNzIwfQ.N2ypkEW2WfFhe-6mVumDr2GqKVVmmhLeLzApPVnh59M
+
+
+############################### MODERATOR ROUTES ###############################
+
+PUT http://localhost:2121/moderator/raise-flag/1
+
+###
+
+GET http://localhost:2121/moderator/user/1/blogs
